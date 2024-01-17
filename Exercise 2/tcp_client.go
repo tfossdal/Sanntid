@@ -49,7 +49,7 @@ func main() {
 	defer conn.Close()
 
 	go serverRead(conn)
-	go serverAccept(conn)
+	serverAccept(conn)
 
 	select {}
 }
