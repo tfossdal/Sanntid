@@ -21,5 +21,13 @@ func main() {
 		fmt.Println("Error listening on UDP:", err)
 		return
 	}
-	defer conn.Close()
+
+	buf := make([]byte, 1024)
+
+	conn.ReadFromUDP(buf)
+
+	fmt.Printf("IP Adress: %s", buf[:])
+
+	//defer conn.Close()
+
 }
