@@ -19,7 +19,7 @@ func main() {
 	}
 	defer conn.Close()
 
-	_, err = conn.Write([]byte("Hei på deg"))
+	_, err = conn.Write([]byte("Hei hei, håper dere har en fin dag:)"))
 	if err != nil {
 		fmt.Println("Error writing to UDP:", err)
 		return
