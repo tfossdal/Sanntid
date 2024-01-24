@@ -41,4 +41,3 @@ func StateToString(state State) string {
 		return "State Unknown"
 	}
 }
-
