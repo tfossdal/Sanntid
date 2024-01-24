@@ -22,3 +22,12 @@ func Timer_timedOut() int {
 	}
 	return 0
 }
+
+func CheckForTimeout() {
+	for {
+		if Timer_timedOut() != 0 {
+			Timer_stop()
+			Fsm_OnDoorTimeout()
+		}
+	}
+}

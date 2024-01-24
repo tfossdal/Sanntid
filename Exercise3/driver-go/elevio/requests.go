@@ -120,7 +120,6 @@ func Requests_clearAtCurrentFloor(e Elevator) Elevator {
 		for btn := 0; btn < _numButtons; btn++ {
 			e.requests[e.floor][btn] = 0
 		}
-		break
 	case CV_InDirn:
 		e.requests[e.floor][BT_Cab] = 0
 		switch e.dirn {

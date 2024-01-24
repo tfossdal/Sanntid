@@ -24,17 +24,24 @@ func main() {
 	go elevio.PollObstructionSwitch(drv_obstr)
 	go elevio.PollStopButton(drv_stop)
 
+	go elevio.CheckForTimeout()
+
+	if elevio.GetFloor() == -1 {
+		elevio.Fsm_onInitBetweenFloors()
+	}
+
 	for {
 		select {
 		case a := <-drv_buttons:
 			//Button signal
 			fmt.Printf("%+v\n", a)
-			elevio.SetButtonLamp(a.Button, a.Floor, true)
+			//elevio.SetButtonLamp(a.Button, a.Floor, true)
 			elevio.Fsm_OnRequestButtonPress(a.Floor, a.Button)
 
 		case a := <-drv_floors:
 			//Floor signal
 			fmt.Printf("%+v\n", a)
+			elevio.Fsm_OnFloorArrival(a)
 
 		case a := <-drv_obstr:
 			//Obstruction
