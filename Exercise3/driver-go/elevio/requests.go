@@ -57,10 +57,30 @@ func requests_here(e Elevator) int {
 	return 0
 }
 
-func requests_chooseDirection(e Elevator) DirnBehaviourPair {
+func Requests_chooseDirection(e Elevator) DirnBehaviourPair {
 	switch e.dirn {
 	case MD_Up:
-
+		if requests_above(e) != 0 {
+			return DirnBehaviourPair{MD_Up, Moving}
+		}
+		if requests_here(e) != 0 {
+			return DirnBehaviourPair{MD_Down, DoorOpen}
+		}
+		if requests_below(e) != 0 {
+			return DirnBehaviourPair{MD_Down, Moving}
+		}
+		return DirnBehaviourPair{MD_Stop, Idle}
+	case MD_Down:
+		if requests_below(e) != 0 {
+			return DirnBehaviourPair{MD_Down, Moving}
+		}
+		if requests_here(e) != 0 {
+			return DirnBehaviourPair{MD_Up, DoorOpen}
+		}
+		if requests_above(e) != 0 {
+			return DirnBehaviourPair{MD_Up, Moving}
+		}
+		return DirnBehaviourPair{MD_Stop, Idle}
 	}
 }
 
