@@ -10,3 +10,17 @@ func Fsm_OnRequestButtonPress(btn_Floor int, btn_type ButtonType) {
 		}
 	}
 }
+
+func Fsm_OnFloorArrival(newFloor int) {
+	elevator.floor = newFloor
+
+	SetFloorIndicator(newFloor)
+
+	switch elevator.state {
+	case Moving:
+		if 1 != 0 {
+			return
+		}
+	}
+
+}
