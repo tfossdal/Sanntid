@@ -113,3 +113,32 @@ func Requests_ShouldClearImmediately(e Elevator, btn_floor int, btn_type ButtonT
 		return 0
 	}
 }
+
+func Requests_clearAtCurrentFloor(e Elevator) Elevator {
+	switch e.config.clearRequestVariant {
+	case CV_ALL:
+		for btn := 0; btn < _numButtons; btn++ {
+			e.requests[e.floor][btn] = 0
+		}
+		break
+	case CV_InDirn:
+		e.requests[e.floor][BT_Cab] = 0
+		switch e.dirn {
+		case MD_Up:
+			if (requests_above(e) == 0) && (0 == e.requests[e.floor][BT_HallUp]) {
+				e.requests[e.floor][BT_HallDown] = 0
+			}
+			e.requests[e.floor][BT_HallUp] = 0
+		case MD_Down:
+			if (0 == requests_below(e)) && (0 == e.requests[e.floor][BT_HallDown]) {
+				e.requests[e.floor][BT_HallUp] = 0
+			}
+			e.requests[e.floor][BT_HallDown] = 0
+		default:
+			e.requests[e.floor][BT_HallUp] = 0
+			e.requests[e.floor][BT_HallDown] = 0
+		}
+	default:
+	}
+	return e
+}
