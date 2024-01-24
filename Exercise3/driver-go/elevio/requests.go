@@ -20,6 +20,7 @@ func Requests_ShouldClearImmediately(e Elevator, btn_floor int, btn_type ButtonT
 		return 0
 	}
 }
+
 func requests_above(e Elevator) int {
 	for f := e.floor + 1; f < _numFloors; f++ {
 		for btn := 0; btn < _numButtons; btn++ {
