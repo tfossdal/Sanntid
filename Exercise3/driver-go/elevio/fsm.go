@@ -85,8 +85,8 @@ func Fsm_OnDoorTimeout() {
 			Timer_start(elevator.config.doorOpenDuration_s)
 			elevator = Requests_clearAtCurrentFloor(elevator)
 			SetAllLights(elevator)
-		case Moving:
 		case Idle:
+		case Moving:
 			SetDoorOpenLamp(false)
 			SetMotorDirection(elevator.dirn)
 		}
