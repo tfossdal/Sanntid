@@ -125,12 +125,12 @@ func Requests_clearAtCurrentFloor(e Elevator) Elevator {
 		e.requests[e.floor][BT_Cab] = 0
 		switch e.dirn {
 		case MD_Up:
-			if (requests_above(e) == 0) && (0 == e.requests[e.floor][BT_HallUp]) {
+			if (requests_above(e) == 0) && (e.requests[e.floor][BT_HallUp] == 0) {
 				e.requests[e.floor][BT_HallDown] = 0
 			}
 			e.requests[e.floor][BT_HallUp] = 0
 		case MD_Down:
-			if (0 == requests_below(e)) && (0 == e.requests[e.floor][BT_HallDown]) {
+			if (requests_below(e) == 0) && (e.requests[e.floor][BT_HallDown] == 0) {
 				e.requests[e.floor][BT_HallUp] = 0
 			}
 			e.requests[e.floor][BT_HallDown] = 0
