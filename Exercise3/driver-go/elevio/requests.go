@@ -26,6 +26,15 @@ func requests_below(e Elevator) int {
 	return 0
 }
 
+func requests_here(e Elevator) int {
+	for btn := 0; btn < _numButtons; btn++ {
+		if e.requests[e.floor][btn] != 0 {
+			return 1
+		}
+	}
+	return 0
+}
+
 func Requests_shouldStop(e Elevator) {
 	switch elevator.dirn {
 	default:
