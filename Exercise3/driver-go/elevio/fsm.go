@@ -5,5 +5,8 @@ var elevator Elevator = Elevator{-1, MD_Stop, [_numFloors][_numButtons]int{{0, 0
 func Fsm_OnRequestButtonPress(btn_Floor int, btn_type ButtonType) {
 	switch elevator.state {
 	case DoorOpen:
+		if (Requests_ShouldClearImmediately(elevator, btn_Floor, btn_type) != 0){
+			
+		}
 	}
 }
