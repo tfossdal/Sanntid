@@ -17,7 +17,7 @@ const (
 
 type Config struct {
 	clearRequestVariant ClearRequestVariant
-	doorOpenDuration_s  float32
+	doorOpenDuration_s  float64
 }
 
 type Elevator struct {

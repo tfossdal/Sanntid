@@ -1,6 +1,13 @@
 package elevio
 
+import "fmt"
+
 var elevator Elevator = Elevator{-1, MD_Stop, [_numFloors][_numButtons]int{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}}, Idle, Config{CV_ALL, 3.0}}
+
+func PrintState() {
+	fmt.Println(StateToString(elevator.state))
+	fmt.Println("Direction: ", elevator.dirn)
+}
 
 func SetAllLights(es Elevator) {
 	for floor := 0; floor < _numFloors; floor++ {

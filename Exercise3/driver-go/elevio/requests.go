@@ -1,5 +1,7 @@
 package elevio
 
+import "fmt"
+
 type DirnBehaviourPair struct {
 	dirn  MotorDirection
 	state State
@@ -18,7 +20,7 @@ func requests_above(e Elevator) int {
 
 func requests_below(e Elevator) int {
 	for f := 0; f < e.floor; f++ {
-		for btn := 0; btn < -_numButtons; btn++ {
+		for btn := 0; btn < _numButtons; btn++ {
 			if e.requests[f][btn] != 0 {
 				return 1
 			}
@@ -61,6 +63,7 @@ func Requests_chooseDirection(e Elevator) DirnBehaviourPair {
 		}
 		return DirnBehaviourPair{MD_Stop, Idle}
 	case MD_Stop:
+		fmt.Println("yes")
 		if requests_here(e) != 0 {
 			return DirnBehaviourPair{MD_Stop, DoorOpen}
 		}

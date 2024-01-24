@@ -31,6 +31,7 @@ func main() {
 	}
 
 	for {
+		elevio.PrintState()
 		select {
 		case a := <-drv_buttons:
 			//Button signal
@@ -51,11 +52,11 @@ func main() {
 			//Stop button signal
 			fmt.Printf("%+v\n", a)
 			//Turn all buttons off
-			for f := 0; f < numFloors; f++ {
-				for b := elevio.ButtonType(0); b < 3; b++ {
-					elevio.SetButtonLamp(b, f, false)
-				}
-			}
+			// for f := 0; f < numFloors; f++ {
+			// 	for b := elevio.ButtonType(0); b < 3; b++ {
+			// 		elevio.SetButtonLamp(b, f, false)
+			// 	}
+			// }
 		}
 	}
 }
