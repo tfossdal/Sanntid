@@ -81,6 +81,19 @@ func Requests_chooseDirection(e Elevator) DirnBehaviourPair {
 			return DirnBehaviourPair{MD_Up, Moving}
 		}
 		return DirnBehaviourPair{MD_Stop, Idle}
+	case MD_Stop:
+		if requests_here(e) != 0 {
+			return DirnBehaviourPair{MD_Stop, DoorOpen}
+		}
+		if requests_above(e) != 0 {
+			return DirnBehaviourPair{MD_Up, Moving}
+		}
+		if requests_below(e) != 0 {
+			return DirnBehaviourPair{MD_Down, Moving}
+		}
+		return DirnBehaviourPair{MD_Stop, Idle}
+	default:
+		return DirnBehaviourPair{MD_Stop, Idle}
 	}
 }
 
