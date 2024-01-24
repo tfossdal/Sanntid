@@ -30,6 +30,8 @@ func main() {
 		elevio.Fsm_onInitBetweenFloors()
 	}
 
+	elevio.InitLights()
+
 	for {
 		elevio.PrintState()
 		select {

@@ -14,9 +14,16 @@ func SetAllLights(es Elevator) {
 		for btn := 0; btn < _numButtons; btn++ {
 			if es.requests[floor][btn] != 0 {
 				SetButtonLamp(ButtonType(btn), floor, true)
+			} else {
+				SetButtonLamp(ButtonType(btn), floor, false)
 			}
 		}
 	}
+}
+
+func InitLights() {
+	SetDoorOpenLamp(false)
+	SetAllLights(elevator)
 }
 
 func Fsm_onInitBetweenFloors() {
@@ -86,6 +93,8 @@ func Fsm_OnDoorTimeout() {
 			elevator = Requests_clearAtCurrentFloor(elevator)
 			SetAllLights(elevator)
 		case Idle:
+			SetDoorOpenLamp(false)
+			SetMotorDirection(elevator.dirn)
 		case Moving:
 			SetDoorOpenLamp(false)
 			SetMotorDirection(elevator.dirn)
