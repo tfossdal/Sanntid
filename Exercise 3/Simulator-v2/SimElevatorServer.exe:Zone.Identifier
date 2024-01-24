@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/TTK4145/Simulator-v2/releases/tag/v1.5
+HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/115723244/3e19bb80-27d2-11e9-9e34-20df2a841222?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240124%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240124T080849Z&X-Amz-Expires=300&X-Amz-Signature=990ae7b6fa778b8e2bf4aab61e457bf83c566808ffabf8d233de7a5d759c26bd&X-Amz-SignedHeaders=host&actor_id=125375459&key_id=0&repo_id=115723244&response-content-disposition=attachment%3B%20filename%3DSimElevatorServer.exe&response-content-type=application%2Foctet-stream

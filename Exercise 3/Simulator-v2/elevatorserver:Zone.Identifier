@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/TTK4145/elevator-server/releases/tag/v0.2.0
+HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/115811980/504c0594-dd69-4e75-a928-13d50b2f2ba3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240124%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240124T082413Z&X-Amz-Expires=300&X-Amz-Signature=d0befb4ed32b6f584fabbf1af24252b1cfad039a83e94224620bc47ad43d4cff&X-Amz-SignedHeaders=host&actor_id=125375459&key_id=0&repo_id=115811980&response-content-disposition=attachment%3B%20filename%3Delevatorserver&response-content-type=application%2Foctet-stream
