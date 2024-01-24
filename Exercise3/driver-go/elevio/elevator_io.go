@@ -10,9 +10,13 @@ import (
 const _pollRate = 20 * time.Millisecond
 
 var _initialized bool = false
-var _numFloors int = 4
+
+const _numFloors = 4
+
 var _mtx sync.Mutex
 var _conn net.Conn
+
+const _numButtons = 3
 
 type MotorDirection int
 
@@ -40,7 +44,7 @@ func Init(addr string, numFloors int) {
 		fmt.Println("Driver already initialized!")
 		return
 	}
-	_numFloors = numFloors
+	//_numFloors = numFloors
 	_mtx = sync.Mutex{}
 	var err error
 	_conn, err = net.Dial("tcp", addr)
