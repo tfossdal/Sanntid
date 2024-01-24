@@ -1,5 +1,10 @@
 package elevio
 
+type DirnBehaviourPair struct {
+	dirn  MotorDirection
+	state State
+}
+
 func Requests_ShouldClearImmediately(e Elevator, btn_floor int, btn_type ButtonType) int {
 	switch e.config.clearRequestVariant {
 	case CV_ALL:
@@ -50,6 +55,13 @@ func requests_here(e Elevator) int {
 		}
 	}
 	return 0
+}
+
+func requests_chooseDirection(e Elevator) DirnBehaviourPair {
+	switch e.dirn {
+	case MD_Up:
+
+	}
 }
 
 func Requests_shouldStop(e Elevator) {
