@@ -80,6 +80,15 @@ func Fsm_OnFloorArrival(newFloor int) {
 	}
 }
 
+// func Fsm_OnStopButtonpress() {
+// 	switch elevator.state {
+// 	case Moving:
+// 		elevator.dirn = MD_Stop
+// 		elevator.state = Idle
+// 	case Idle:
+// 	}
+// }
+
 func Fsm_OnDoorTimeout() {
 	switch elevator.state {
 	case DoorOpen:
