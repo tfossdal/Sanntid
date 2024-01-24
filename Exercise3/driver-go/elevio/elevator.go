@@ -28,3 +28,17 @@ type Elevator struct {
 
 	config Config
 }
+
+func StateToString(state State) string {
+	switch state {
+	case Idle:
+		return "State Idle"
+	case Moving:
+		return "State Moving"
+	case DoorOpen:
+		return "State DoorOpen"
+	default:
+		return "State Unknown"
+	}
+}
+
