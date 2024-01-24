@@ -97,9 +97,19 @@ func Requests_chooseDirection(e Elevator) DirnBehaviourPair {
 	}
 }
 
-func Requests_shouldStop(e Elevator) {
+func Requests_shouldStop(e Elevator) int {
 	switch elevator.dirn {
+	case MD_Down:
+		if e.requests[e.floor][BT_HallDown]+e.requests[e.floor][BT_HallDown]-(requests_above(e)-1) != 0 {
+			return 1
+		}
+		return 0
+	case MD_Up:
+		if e.requests[e.floor][BT_HallDown]+e.requests[e.floor][BT_HallUp]-(requests_above(e)-1) != 0 {
+			return 1
+		}
+		return 0
 	default:
-		break
+		return 1
 	}
 }
