@@ -4,9 +4,9 @@ func Requests_ShouldClearImmediately()
 
 func HiWhatsUp()
 
-func requests_above(e Elevator) {
+func requests_above(e Elevator) int {
 	for f := e.floor + 1; f < _numFloors; f++ {
-		for btn = 0; btn < _numButtons; btn++ {
+		for btn := 0; btn < _numButtons; btn++ {
 			if e.requests[f][btn] != 0 {
 				return 1
 			}
@@ -15,9 +15,9 @@ func requests_above(e Elevator) {
 	return 0
 }
 
-func requests_below(e Elevator) {
+func requests_below(e Elevator) int {
 	for f := 0; f < e.floor; f++ {
-		for btn = 0; btn < -_numButtons; btn++ {
+		for btn := 0; btn < -_numButtons; btn++ {
 			if e.requests[f][btn] != 0 {
 				return 1
 			}
